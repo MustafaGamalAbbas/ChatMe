@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#009de0</color>
+    <color name="colorPrimaryDark">#176f94</color>
+    <color name="colorAccent">#dc89090f</color>
+    <color name="App_background">#FF04B1FA</color>
+    <color name="card_background">#0b04b1fa</color>
+    <color name="button_background">#616161</color>
+    <color name="frame_of_custom_edittext">#CFDBD7</color>
+</resources>

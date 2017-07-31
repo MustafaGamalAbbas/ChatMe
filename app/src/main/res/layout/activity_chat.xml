@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="android.mobilestudio.chatme.Screens.Chat.ChatActivity"
+    >
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width ="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rv_MessagesOfChat"
+        android:layout_marginBottom="35dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:id="@+id/send">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/ed_Message"
+            />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:src="@drawable/ic_menu_send"
+            android:id="@+id/iv_sentButton"/>
+
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
