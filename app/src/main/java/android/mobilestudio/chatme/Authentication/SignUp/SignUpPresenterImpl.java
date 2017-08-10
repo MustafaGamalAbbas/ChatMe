@@ -1,5 +1,7 @@
 package android.mobilestudio.chatme.Authentication.SignUp;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.mobilestudio.chatme.Models.Person;
 import android.mobilestudio.chatme.R;
 import android.support.v7.view.menu.MenuView;
@@ -11,6 +13,7 @@ import android.support.v7.view.menu.MenuView;
 public class SignUpPresenterImpl implements SignUpPresenter, SignUpInteractor.OnSignUpFinishedListener {
     SignUpView mView;
     SignUpInteractor mInteractor;
+    Person person ;
 
     public SignUpPresenterImpl(SignUpView view) {
         this.mView = view;
@@ -40,6 +43,8 @@ public class SignUpPresenterImpl implements SignUpPresenter, SignUpInteractor.On
 
     @Override
     public void onSuccess() {
+        mInteractor.uploadAccountData(person);
+        mView.saveUserDataInSharedPreference();
         mView.navigateToHome();
     }
 
@@ -65,9 +70,9 @@ public class SignUpPresenterImpl implements SignUpPresenter, SignUpInteractor.On
             mView.setLastNameError();
             return;
         }
+        this.person = person ;
         mView.showProgress();
         mInteractor.SignUp(person.getEmail(), person.getPassword(), this);
-        mInteractor.uploadAccountData(person);
     }
 
     @Override

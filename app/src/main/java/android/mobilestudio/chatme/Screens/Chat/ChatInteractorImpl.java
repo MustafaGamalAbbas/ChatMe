@@ -32,7 +32,7 @@ public class ChatInteractorImpl implements ChatInteractor {
     public List<Message> getPreviousMessages(final OnMessagesListener listener, String id ) {
         Id = id ;
         final List<Message> list = new ArrayList<>();
-        databaseReference = database.getReference("/Chats/"+MyID+"/"+id);
+        databaseReference = database.getReference("/NanoChats/"+MyID+"/"+id);
 
         ChildEventListener childEventListener = new ChildEventListener() {
             @Override
@@ -71,10 +71,10 @@ public class ChatInteractorImpl implements ChatInteractor {
                 Calendar.getInstance().getTime().getMinutes() +""+
                 Calendar.getInstance().getTime().getSeconds();
 
-        databaseReference =  database.getReference("/Chats/"+MyID+"/"+Id+ "/"+Time);
+        databaseReference =  database.getReference("/NanoChats/"+MyID+"/"+Id+ "/"+Time);
         message.setIt_is_myMessage(true);
         databaseReference.setValue(message);
-        databaseReference =  database.getReference("/Chats/"+Id+"/"+MyID+ "/"+Time);
+        databaseReference =  database.getReference("/NanoChats/"+Id+"/"+MyID+ "/"+Time);
         message.setIt_is_myMessage(false);
         databaseReference.setValue(message);
 

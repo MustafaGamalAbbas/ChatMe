@@ -19,6 +19,8 @@
     <string name="email_address_hint">Email Address</string>
     <string name="password_hint">Password</string>
     <string name="confirm_password_hint">Confirm Password</string>
+    <string name="position_hint">Your Position </string>
+    <string name="phone_hint"> Phone </string>
     <string name="birth_date_hint">Birth Date </string>
     <string name="gender_label">Gender</string>
     <string name="male_label">Male</string>
@@ -34,4 +36,13 @@
     <string name="auth_failed">Authentication failed, check your email and password or sign up</string>
     <string name="fail_sent_email">Failed to send reset email! </string>
     <string name="user_in_app">All Users </string>
+    <string name="profile">PROFILE</string>
+    <string name="nameofperson">Name</string>
+    <string name="active">Active</string>
+    <string name="email">Email :- </string>
+    <string name="phone">Phone :- </string>
+    <string name="Age">Age :- </string>
+    <string name="birthdate">BirthDate :- </string>
+    <string name="save">Save</string>
+    <string name="ad_id_bannar">ca-app-pub-3940256099942544/6300978111</string>
 </resources>

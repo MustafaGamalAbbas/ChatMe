@@ -13,5 +13,6 @@ public interface PeopleListView {
     void setAdapter(List<Person> list);
     void notifyAdapter ();
     void returnToLoginScreen ();
+    void toProfile(Person user);
 
 }

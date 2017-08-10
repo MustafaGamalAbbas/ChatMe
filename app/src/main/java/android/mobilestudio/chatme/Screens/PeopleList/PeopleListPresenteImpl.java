@@ -1,5 +1,7 @@
 package android.mobilestudio.chatme.Screens.PeopleList;
 
+import android.mobilestudio.chatme.Models.Person;
+
 /**
  * Created by pisoo on 7/30/2017.
  */
@@ -29,6 +31,11 @@ public class PeopleListPresenteImpl implements PeopleListPresenter , PeopleListI
     }
 
     @Override
+    public void moveToProfile() {
+        interactor.getPerson(this) ;
+    }
+
+    @Override
     public void OnItemAdded() {
             mView.notifyAdapter();
     }
@@ -41,6 +48,11 @@ public class PeopleListPresenteImpl implements PeopleListPresenter , PeopleListI
     @Override
     public void onItemEdited() {
         mView.notifyAdapter();
-
     }
+    @Override
+    public void onGetPerson(Person person) {
+        mView.toProfile(person);
+    }
+
+
 }

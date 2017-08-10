@@ -15,6 +15,42 @@ public class Person implements Serializable{
     private String LastName ;
     private String Email;
     private String Password;
+    private String Position ;
+    private int Age ;
+    private String phone;
+    private Boolean active ;
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getPosition() {
+        return Position;
+    }
+
+    public void setPosition(String positoin) {
+        Position = positoin;
+    }
+
+    public int getAge() {
+        return Age;
+    }
+
+    public void setAge(int age) {
+        Age = age;
+    }
 
     public String getId() {
         return Id;

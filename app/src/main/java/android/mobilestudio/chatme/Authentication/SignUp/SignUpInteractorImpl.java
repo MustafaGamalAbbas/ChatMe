@@ -1,5 +1,6 @@
 package android.mobilestudio.chatme.Authentication.SignUp;
 
+import android.content.SharedPreferences;
 import android.mobilestudio.chatme.Models.Person;
 import android.support.annotation.NonNull;
 import android.util.Log;
@@ -47,7 +48,7 @@ public class SignUpInteractorImpl implements SignUpInteractor {
     public void uploadAccountData(Person person) {
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
             String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
-            DatabaseReference databaseReference = firebaseDatabase.getReference("/Persons/" + id);
+            DatabaseReference databaseReference = firebaseDatabase.getReference("/people/" + id);
             person.setId(id);
             databaseReference.setValue(person);
         } else {

@@ -15,7 +15,10 @@ public interface PeopleListInteractor {
         void  OnItemAdded () ;
          void onItemRemoved ();
          void onItemEdited ();
-    }
+         void onGetPerson(Person person) ;
+     }
     List<Person> getListOfPerson (OnGetFinishedListener listener) ;
     void Logout();
+    Person getPerson(OnGetFinishedListener listener  );
+
 }

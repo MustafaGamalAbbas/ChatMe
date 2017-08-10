@@ -8,4 +8,5 @@ public interface PeopleListPresenter {
      void onDestroy();
      void onCreate() ;
      void logoutCurrentUser () ;
+     void moveToProfile ();
 }

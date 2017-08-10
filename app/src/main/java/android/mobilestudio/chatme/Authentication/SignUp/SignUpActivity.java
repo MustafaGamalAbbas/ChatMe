@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 
+import android.content.SharedPreferences;
 import android.mobilestudio.chatme.R;
 import android.mobilestudio.chatme.Models.Person;
 import android.mobilestudio.chatme.Screens.PeopleList.PeopleList;
@@ -27,6 +28,7 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.gson.Gson;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -35,13 +37,13 @@ import java.util.Locale;
 public class SignUpActivity extends AppCompatActivity implements SignUpView ,View.OnClickListener {
 
     private CheckBox mMale, mFemale;
-    private EditText mFirstName, mLastName, mEmailAddress, mPassword, mConPassword, mBirthDate;
+    private EditText mFirstName, mLastName, mEmailAddress, mPassword, mConPassword, mBirthDate ,mPosition ,mPhone;
     private ProgressBar progressBar;
     private ImageView mOrangeImg;
     private Person myOwnData;
     private FirebaseDatabase firebaseDatabase;
     private SignUpPresenter presenter ;
-
+      Calendar myCalendar ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +82,8 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView ,Vie
         mPassword = (EditText) findViewById(R.id.ed_password);
         mConPassword = (EditText) findViewById(R.id.ed_confrimPassword);
         mBirthDate = (EditText) findViewById(R.id.ed_birthDatee);
+        mPosition = (EditText) findViewById(R.id.ed_position);
+        mPhone = (EditText) findViewById(R.id.ed_phone);
         mMale = (CheckBox) findViewById(R.id.cb_male);
         mMale.setChecked(true);
         mFemale = (CheckBox) findViewById(R.id.cb_female);
@@ -92,13 +96,19 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView ,Vie
         myOwnData.setLastName(mLastName.getText().toString().trim());
         myOwnData.setEmail(mEmailAddress.getText().toString().trim());
         myOwnData.setPassword(mPassword.getText().toString().trim());
+        myOwnData.setPosition(mPosition.getText().toString().trim());
+        myOwnData.setPhone(mPhone.getText().toString().trim());
+        myOwnData.setActive(true);
         if (mMale.isChecked()) {
             myOwnData.setGender("Male");
         } else if (mFemale.isChecked()) {
             myOwnData.setGender("Female");
         }
         if (!mBirthDate.getText().toString().equals(""))
+        {
             myOwnData.setBirthDate(mBirthDate.getText().toString().trim());
+            myOwnData.setAge(Calendar.getInstance().getTime().getYear()- myCalendar.getTime().getYear());
+        }
         else {
             myOwnData.setBirthDate("Not Entered ");
         }
@@ -161,7 +171,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView ,Vie
 
     @Override
     public void releaseDatePickerDialog() {
-        final Calendar myCalendar = Calendar.getInstance();
+         myCalendar = Calendar.getInstance();
         DatePickerDialog dialog = new DatePickerDialog(SignUpActivity.this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
@@ -209,6 +219,16 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView ,Vie
         ta2.setDuration(2000);
         as.addAnimation(ta2);
         mOrangeImg.startAnimation(as);
+    }
+
+    @Override
+    public void saveUserDataInSharedPreference() {
+        SharedPreferences sharedpreferences = this.getSharedPreferences("SharedPre", Context.MODE_PRIVATE);
+        SharedPreferences.Editor prefsEditor = sharedpreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(myOwnData);
+        prefsEditor.putString("CurrentUser", json);
+        prefsEditor.apply();
     }
 
     @Override

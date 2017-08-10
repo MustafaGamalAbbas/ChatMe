@@ -32,4 +32,5 @@ public interface SignUpView {
 
     void setTiltetoToolbar (int id);
     void setAnimToOrangeImage ();
+    void saveUserDataInSharedPreference();
 }
