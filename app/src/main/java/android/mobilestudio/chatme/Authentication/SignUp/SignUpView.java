@@ -16,7 +16,7 @@ public interface SignUpView {
 
     void setEmailError();
 
-    void diplayToast (int message );
+    void diplayToast(int message);
 
     void setPasswordError();
 
@@ -26,11 +26,13 @@ public interface SignUpView {
 
     void hideKeyboard();
 
-    void releaseDatePickerDialog () ;
+    void releaseDatePickerDialog();
 
-    void changeGender ();
+    void changeGender();
 
-    void setTiltetoToolbar (int id);
-    void setAnimToOrangeImage ();
+    void setTiltetoToolbar(int id);
+
+    void setAnimToOrangeImage();
+
     void saveUserDataInSharedPreference();
 }

@@ -10,16 +10,19 @@ import android.mobilestudio.chatme.screens.chat.ChatInteractorImpl;
 
 public class TextMessage extends Message {
 
-    private ChatInteractor  interactor ;
+    private ChatInteractor interactor;
+
     public TextMessage() {
         interactor = new ChatInteractorImpl();
     }
 
-    public void sentMessage(){
+    public void sentMessage() {
         interactor.addMessage(this);
     }
-    public void editMessage(){
+
+    public void editMessage() {
     }
-    public void deleteMessage(){
+
+    public void deleteMessage() {
     }
 }

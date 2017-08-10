@@ -24,23 +24,24 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class EditProfile extends AppCompatActivity {
-     Person userToEdit ;
-    private EditText mFirstName, mLastName, mEmailAddress, mPassword, mConPassword, mBirthDate ,mPosition ,mPhone;
-    private Button mSave ;
+    Person userToEdit;
+    private EditText mFirstName, mLastName, mEmailAddress, mPassword, mConPassword, mBirthDate, mPosition, mPhone;
+    private Button mSave;
     private static final String EMAIL_PATTERN = "^[a-zA-Z0-9#_~!$&'()*+,;=:.\"(),:;<>@\\[\\]\\\\]+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*$";
     private Pattern pattern = Pattern.compile(EMAIL_PATTERN);
-    private String oldPassword , oldEmail ;
-    FirebaseDatabase firebaseDatabase ;
+    private String oldPassword, oldEmail;
+    FirebaseDatabase firebaseDatabase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
-        if(getIntent()!= null){
+        if (getIntent() != null) {
             userToEdit = (Person) getIntent().getExtras().get("userToEdit");
             oldEmail = userToEdit.getEmail();
             oldPassword = userToEdit.getPassword();
         }
-          firebaseDatabase = FirebaseDatabase.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
         linkViews();
         setView();
     }
@@ -48,18 +49,19 @@ public class EditProfile extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_edit_profile, menu);
-        return true;    }
+        return true;
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if(id==R.id.action_save)
-        {
-            SaveClicked ();
+        if (id == R.id.action_save) {
+            SaveClicked();
             Toast.makeText(this, R.string.saved, Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
     }
+
     private void linkViews() {
         mFirstName = (EditText) findViewById(R.id.ed_FirstName);
         mLastName = (EditText) findViewById(R.id.ed_LastName);
@@ -70,7 +72,8 @@ public class EditProfile extends AppCompatActivity {
         mPhone = (EditText) findViewById(R.id.ed_phone);
         mSave = (Button) findViewById(R.id.bt_save);
     }
-    private void setView(){
+
+    private void setView() {
         mFirstName.setText(userToEdit.getFirstName());
         mLastName.setText(userToEdit.getLastName());
         mEmailAddress.setText(userToEdit.getEmail());
@@ -81,26 +84,27 @@ public class EditProfile extends AppCompatActivity {
         mSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SaveClicked ();
+                SaveClicked();
                 Toast.makeText(EditProfile.this, R.string.saved, Toast.LENGTH_SHORT).show();
 
             }
         });
     }
-    private void SaveClicked (){
-        if(!validatePassword(mPassword.getText().toString())) {
+
+    private void SaveClicked() {
+        if (!validatePassword(mPassword.getText().toString())) {
             mPassword.setError("Password too short, enter minimum 6 characters!");
             return;
         }
-        if(!validateEmail(mEmailAddress.getText().toString())){
+        if (!validateEmail(mEmailAddress.getText().toString())) {
             mEmailAddress.setError("Email Address is invalid .");
             return;
         }
-        if(!oldPassword.equals(mPassword.getText().toString())){
-             /// change password
+        if (!oldPassword.equals(mPassword.getText().toString())) {
+            /// change password
             changePassword();
         }
-        if(!oldEmail.equals(mEmailAddress.getText().toString())){
+        if (!oldEmail.equals(mEmailAddress.getText().toString())) {
             /// change Email
             changeEmail();
         }
@@ -119,7 +123,7 @@ public class EditProfile extends AppCompatActivity {
                             Toast.makeText(EditProfile.this, R.string.password_updated, Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(EditProfile.this, R.string.failed_to_update_pass, Toast.LENGTH_SHORT).show();
-                           // progressBar.setVisibility(View.GONE);
+                            // progressBar.setVisibility(View.GONE);
                         }
                     }
                 });
@@ -130,7 +134,8 @@ public class EditProfile extends AppCompatActivity {
         matcher = pattern.matcher(email);
         return matcher.matches();
     }
-    private void changeEmail (){
+
+    private void changeEmail() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         user.updateEmail(mEmailAddress.getText().toString().trim())
@@ -140,8 +145,8 @@ public class EditProfile extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Toast.makeText(EditProfile.this, R.string.email_updated, Toast.LENGTH_LONG).show();
                         } else {
-                            Toast.makeText(EditProfile.this,R.string.failed_to_update , Toast.LENGTH_LONG).show();
-                          //  Log.v("Errrrror",task.getException().getMessage().toString());
+                            Toast.makeText(EditProfile.this, R.string.failed_to_update, Toast.LENGTH_LONG).show();
+                            //  Log.v("Errrrror",task.getException().getMessage().toString());
                         }
                     }
                 });
@@ -161,6 +166,7 @@ public class EditProfile extends AppCompatActivity {
             Log.e("Current User ", "is Null");
         }
     }
+
     private void updatePersonData() {
         userToEdit.setFirstName(mFirstName.getText().toString().trim());
         userToEdit.setLastName(mLastName.getText().toString().trim());

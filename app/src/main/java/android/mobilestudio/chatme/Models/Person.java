@@ -6,16 +6,16 @@ import java.io.Serializable;
  * Created by pisoo on 6/29/2017.
  */
 
-public class Person implements Serializable{
-    private String Id=""  ;
-    private String FirstName ;
-    private String LastName ;
+public class Person implements Serializable {
+    private String Id = "";
+    private String FirstName;
+    private String LastName;
     private String Email;
     private String Password;
-    private String Position ;
-    private int Age ;
+    private String Position;
+    private int Age;
     private String phone;
-    private Boolean active ;
+    private Boolean active;
 
     public Boolean getActive() {
         return active;
@@ -67,8 +67,9 @@ public class Person implements Serializable{
     public void setPassword(String password) {
         Password = password;
     }
-    private String Gender ;
-    private String BirthDate ;
+
+    private String Gender;
+    private String BirthDate;
 
 
     public Person(String birthDate, String email, String firstName, String gender, String group, String lastName, String password, int score) {
@@ -76,9 +77,10 @@ public class Person implements Serializable{
         Email = email;
         FirstName = firstName;
         Gender = gender;
-         LastName = lastName;
+        LastName = lastName;
         Password = password;
     }
+
     public String getFirstName() {
         return FirstName;
     }

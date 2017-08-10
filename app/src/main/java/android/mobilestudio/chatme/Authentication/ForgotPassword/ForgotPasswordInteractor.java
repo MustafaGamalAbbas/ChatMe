@@ -9,9 +9,12 @@ public interface ForgotPasswordInteractor {
     interface OnSentEmailFinishedListener {
 
         void onUsernameError();
-        void failToSent () ;
+
+        void failToSent();
+
         void onSuccess();
     }
-    void sentEmailToRegisteredAccount( String email , OnSentEmailFinishedListener onsentListener ) ;
+
+    void sentEmailToRegisteredAccount(String email, OnSentEmailFinishedListener onsentListener);
 
 }

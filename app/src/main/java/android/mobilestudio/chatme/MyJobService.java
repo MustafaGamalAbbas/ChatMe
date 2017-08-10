@@ -17,12 +17,13 @@ import java.util.List;
  * Created by pisoo on 8/9/2017.
  */
 
-public class   MyJobService extends JobService {
-    FirebaseDatabase database ;
-    public static GetStateOfPerson stateOfPerson ;
+public class MyJobService extends JobService {
+    FirebaseDatabase database;
+    public static GetStateOfPerson stateOfPerson;
+
     @Override
     public boolean onStartJob(JobParameters job) {
-        database  = FirebaseDatabase.getInstance();
+        database = FirebaseDatabase.getInstance();
         getListOfPerson();
         return true; // Answers the question: "Is there still work going on?"
     }
@@ -32,27 +33,28 @@ public class   MyJobService extends JobService {
         return false; // Answers the question: "Should this job be retried?"
     }
 
-    public List<Person> getListOfPerson( ) {
+    public List<Person> getListOfPerson() {
         final List<Person> list = new ArrayList<>();
         DatabaseReference ref = database.getReference("/people");
 
         ChildEventListener childEventListener = new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                list.add(dataSnapshot.getValue(Person.class) ) ;
-               // listener.OnItemAdded();
-               // dataSnapshot
+                list.add(dataSnapshot.getValue(Person.class));
+                // listener.OnItemAdded();
+                // dataSnapshot
                 stateOfPerson.onGetState(dataSnapshot.child("active").getValue(Boolean.class));
-              //  Log.v("dataSnapshotHere  " ,String.valueOf(dataSnapshot.child("active").getValue(Boolean.class)) ) ;
+                //  Log.v("dataSnapshotHere  " ,String.valueOf(dataSnapshot.child("active").getValue(Boolean.class)) ) ;
             }
+
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-               // listener.onItemEdited();
+                // listener.onItemEdited();
             }
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
-               // listener.onItemRemoved();
+                // listener.onItemRemoved();
             }
 
             @Override
@@ -62,8 +64,8 @@ public class   MyJobService extends JobService {
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
-        } ;
+        };
         ref.addChildEventListener(childEventListener);
-        return list ;
+        return list;
     }
 }

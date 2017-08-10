@@ -21,8 +21,9 @@ public class Profile extends AppCompatActivity {
     ImageView editButton;
     Person currentProfile;
     TextView name, position, email, phone, age, birthdate;
-    Switch mASwitch  ;
-    FirebaseDatabase firebaseDatabase ;
+    Switch mASwitch;
+    FirebaseDatabase firebaseDatabase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +60,8 @@ public class Profile extends AppCompatActivity {
         position.setText(currentProfile.getPosition());
         email.setText(currentProfile.getEmail());
         phone.setText(currentProfile.getPhone());
-        age.setText(String.valueOf(currentProfile.getAge()) + " Years");
+        String age_str = currentProfile.getAge() +getResources().getString(R.string.years);
+        age.setText(age_str);
         birthdate.setText(currentProfile.getBirthDate());
         mASwitch.setChecked(currentProfile.getActive());
     }
@@ -72,7 +74,7 @@ public class Profile extends AppCompatActivity {
         phone = (TextView) findViewById(R.id.tv_phone);
         age = (TextView) findViewById(R.id.tv_age);
         birthdate = (TextView) findViewById(R.id.tv_birthdate);
-        mASwitch = (Switch)findViewById(R.id.switchButton);
+        mASwitch = (Switch) findViewById(R.id.switchButton);
 
     }
 

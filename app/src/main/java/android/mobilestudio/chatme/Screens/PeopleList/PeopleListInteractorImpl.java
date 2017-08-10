@@ -22,12 +22,13 @@ import static com.google.android.gms.internal.zzt.TAG;
 
 public class PeopleListInteractorImpl implements PeopleListInteractor {
 
-    FirebaseAuth auth ;
-    private FirebaseDatabase database ;
-   public  PeopleListInteractorImpl (){
-       database  = FirebaseDatabase.getInstance();
+    FirebaseAuth auth;
+    private FirebaseDatabase database;
+
+    public PeopleListInteractorImpl() {
+        database = FirebaseDatabase.getInstance();
         auth = FirebaseAuth.getInstance();
-   }
+    }
 
     @Override
     public List<Person> getListOfPerson(final OnGetFinishedListener listener) {
@@ -37,10 +38,11 @@ public class PeopleListInteractorImpl implements PeopleListInteractor {
         ChildEventListener childEventListener = new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                list.add(dataSnapshot.getValue(Person.class) ) ;
+                list.add(dataSnapshot.getValue(Person.class));
                 listener.OnItemAdded();
-                Log.v("dataSnapshot " , dataSnapshot.getValue(Person.class).getEmail()) ;
+                Log.v("dataSnapshot ", dataSnapshot.getValue(Person.class).getEmail());
             }
+
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
                 listener.onItemEdited();
@@ -58,9 +60,9 @@ public class PeopleListInteractorImpl implements PeopleListInteractor {
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
-        } ;
+        };
         ref.addChildEventListener(childEventListener);
-        return list ;
+        return list;
     }
 
     @Override
@@ -71,14 +73,14 @@ public class PeopleListInteractorImpl implements PeopleListInteractor {
     }
 
     @Override
-    public Person getPerson(  final OnGetFinishedListener listener ) {
+    public Person getPerson(final OnGetFinishedListener listener) {
         final Person[] person = {null};
-        DatabaseReference ref = database.getReference("/people/"+FirebaseAuth.getInstance().getCurrentUser().getUid());
+        DatabaseReference ref = database.getReference("/people/" + FirebaseAuth.getInstance().getCurrentUser().getUid());
         ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // Get Post object and use the values to update the UI
-                  listener.onGetPerson(dataSnapshot.getValue(Person.class));
+                listener.onGetPerson(dataSnapshot.getValue(Person.class));
                 // ...
             }
 

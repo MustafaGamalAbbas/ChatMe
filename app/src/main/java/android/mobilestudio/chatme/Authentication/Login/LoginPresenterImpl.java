@@ -6,17 +6,19 @@ import android.mobilestudio.chatme.R;
  * Created by pisoo on 7/30/2017.
  */
 
-public class LoginPresenterImpl implements LoginPresenter , LoginInteractor.OnLoginFinishedListener {
-     LoginView mView ;
-     LoginInteractor mInteractor ;
-      public LoginPresenterImpl (LoginView view){
+public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.OnLoginFinishedListener {
+    LoginView mView;
+    LoginInteractor mInteractor;
 
-          this.mView = view ;
-          this.mInteractor =new LoginInteractorImpl();
-      }
+    public LoginPresenterImpl(LoginView view) {
+
+        this.mView = view;
+        this.mInteractor = new LoginInteractorImpl();
+    }
+
     @Override
     public void onUsernameError() {
-        if(mView != null){
+        if (mView != null) {
             mView.hideProgress();
             mView.setEmailError();
         }
@@ -24,7 +26,7 @@ public class LoginPresenterImpl implements LoginPresenter , LoginInteractor.OnLo
 
     @Override
     public void onPasswordError() {
-        if(mView != null){
+        if (mView != null) {
             mView.hideProgress();
             mView.setPasswordError();
         }
@@ -32,26 +34,27 @@ public class LoginPresenterImpl implements LoginPresenter , LoginInteractor.OnLo
 
     @Override
     public void failedToLogin() {
-        if(mView != null){
+        if (mView != null) {
             mView.hideProgress();
-            mView.diplayToast(R.string.auth_failed);
+            mView.displayToast(R.string.auth_failed);
         }
     }
 
     @Override
     public void onSuccess() {
-        if(mView !=null){
+        if (mView != null) {
             mView.navigateToHome();
         }
     }
+
     @Override
     public void onDestroy() {
-        mView = null ;
+        mView = null;
     }
 
     @Override
     public void onStart() {
-      mInteractor.onStart();
+        mInteractor.onStart();
     }
 
     @Override
@@ -71,11 +74,11 @@ public class LoginPresenterImpl implements LoginPresenter , LoginInteractor.OnLo
     }
 
     @Override
-    public void validateCredentials(String email ,String password ) {
-        if(mView !=null){
+    public void validateCredentials(String email, String password) {
+        if (mView != null) {
             mView.showProgress();
             mView.hideKeyboard();
         }
-        mInteractor.login(email,password,this);
+        mInteractor.login(email, password, this);
     }
 }

@@ -31,16 +31,16 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class SignUpActivity extends AppCompatActivity implements SignUpView ,View.OnClickListener {
+public class SignUpActivity extends AppCompatActivity implements SignUpView, View.OnClickListener {
 
     private CheckBox mMale, mFemale;
-    private EditText mFirstName, mLastName, mEmailAddress, mPassword, mConPassword, mBirthDate ,mPosition ,mPhone;
+    private EditText mFirstName, mLastName, mEmailAddress, mPassword, mConPassword, mBirthDate, mPosition, mPhone;
     private ProgressBar progressBar;
     private ImageView mOrangeImg;
     private Person myOwnData;
-    private FirebaseDatabase firebaseDatabase;
-    private SignUpPresenter presenter ;
-      Calendar myCalendar ;
+
+    private SignUpPresenter presenter;
+    Calendar myCalendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,15 +48,15 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView ,Vie
         setContentView(R.layout.activity_signup);
         linkViews();
         myOwnData = new Person();
-        firebaseDatabase = FirebaseDatabase.getInstance();
         mBirthDate.setOnClickListener(this);
         mMale.setOnClickListener(this);
         mFemale.setOnClickListener(this);
 
-        presenter =  new SignUpPresenterImpl(this);
+        presenter = new SignUpPresenterImpl(this);
         presenter.onCreate();
 
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_signup, menu);
@@ -68,10 +68,11 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView ,Vie
         int id = item.getItemId();
         if (id == R.id.action_done) {
             fillPersonData();
-            presenter.SignUpUser(myOwnData,mConPassword.getText().toString().trim());
+            presenter.SignUpUser(myOwnData, mConPassword.getText().toString().trim());
         }
         return super.onOptionsItemSelected(item);
     }
+
     private void linkViews() {
         mFirstName = (EditText) findViewById(R.id.ed_FirstName);
         mLastName = (EditText) findViewById(R.id.ed_LastName);
@@ -88,6 +89,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView ,Vie
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         mOrangeImg = (ImageView) findViewById(R.id.iv_orangeImage);
     }
+
     private void fillPersonData() {
         myOwnData.setFirstName(mFirstName.getText().toString().trim());
         myOwnData.setLastName(mLastName.getText().toString().trim());
@@ -101,12 +103,10 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView ,Vie
         } else if (mFemale.isChecked()) {
             myOwnData.setGender("Female");
         }
-        if (!mBirthDate.getText().toString().equals(""))
-        {
+        if (!mBirthDate.getText().toString().equals("")) {
             myOwnData.setBirthDate(mBirthDate.getText().toString().trim());
-            myOwnData.setAge(Calendar.getInstance().getTime().getYear()- myCalendar.getTime().getYear());
-        }
-        else {
+            myOwnData.setAge(Calendar.getInstance().getTime().getYear() - myCalendar.getTime().getYear());
+        } else {
             myOwnData.setBirthDate("Not Entered ");
         }
     }
@@ -123,17 +123,17 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView ,Vie
 
     @Override
     public void setFristNameError() {
-        mFirstName.setError("First Name is required .");
+        mFirstName.setError(getResources().getString(R.string.first_name_required));
     }
 
     @Override
     public void setLastNameError() {
-        mLastName.setError("Last Name is required .");
+        mLastName.setError(getResources().getString(R.string.last_name_required));
     }
 
     @Override
     public void setEmailError() {
-        mEmailAddress.setError("Email Address is invalid .");
+        mEmailAddress.setError(getResources().getString(R.string.invalid_email));
     }
 
     @Override
@@ -143,7 +143,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView ,Vie
 
     @Override
     public void setPasswordError() {
-        mPassword.setError("Password too short, enter minimum 6 characters!");
+        mPassword.setError(getResources().getString(R.string.invalid_email));
     }
 
     @Override
@@ -168,7 +168,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView ,Vie
 
     @Override
     public void releaseDatePickerDialog() {
-         myCalendar = Calendar.getInstance();
+        myCalendar = Calendar.getInstance();
         DatePickerDialog dialog = new DatePickerDialog(SignUpActivity.this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
@@ -189,15 +189,14 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView ,Vie
         if (mMale.isChecked()) {
             mMale.setChecked(false);
             mFemale.setChecked(true);
-        }
-        else if (mFemale.isChecked()) {
+        } else if (mFemale.isChecked()) {
             mFemale.setChecked(false);
             mMale.setChecked(true);
         }
     }
 
     @Override
-    public void setTiltetoToolbar( int id) {
+    public void setTiltetoToolbar(int id) {
         getSupportActionBar().setTitle(id);
 
     }
@@ -230,15 +229,14 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView ,Vie
 
     @Override
     public void onClick(View v) {
-        switch (v.getId())
-        {
-            case R.id.ed_birthDatee :
-                    presenter.BirthdateClickd();
-                break ;
-            case R.id.cb_male :
-            case R.id.cb_female :
+        switch (v.getId()) {
+            case R.id.ed_birthDatee:
+                presenter.BirthdateClickd();
+                break;
+            case R.id.cb_male:
+            case R.id.cb_female:
                 presenter.GenderClicked();
-                break ;
+                break;
         }
     }
 

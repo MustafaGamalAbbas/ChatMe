@@ -52,10 +52,20 @@
     <string name="saved">Saved</string>
     <string name="info">Info</string>
     <string name="invalid_password">"Password too short, enter minimum 6 characters!"</string>
+    <string name="invalid_email">The Email Address is invalid</string>
     <string name="email_updated">Email address is updated.</string>
     <string name="failed_to_update">"Failed to update email!"</string>
     <string name="password_updated">Password is updated.</string>
     <string name="type_a_massage">Type a message </string>
     <string name="ops">ops! there is an problem please check your internet connecion </string>
     <string name="failed_to_update_pass">"Failed to update password!"</string>
+    <string name="edit_content_description">Edit Your Profile </string>
+    <string name="last_name_required">Last Name is required .</string>
+    <string name="first_name_required">First Name is required .</string>
+    <string name="all_users">All Users </string>
+    <string name="online_users">Online Users </string>
+    <string name="logo_des">Logo</string>
+    <string name="signup_des">Sign up Please </string>
+    <string name="years">  Years </string>
+
 </resources>

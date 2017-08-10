@@ -1,4 +1,5 @@
 package android.mobilestudio.chatme.authentication.forgotPassword;
+
 import android.graphics.Typeface;
 import android.mobilestudio.chatme.R;
 import android.support.v7.app.AppCompatActivity;
@@ -10,22 +11,23 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class ForgotPasswordActivity extends AppCompatActivity  implements View.OnClickListener , ForgotPasswordView{
-    private EditText mEmailAddress ;
-    private Button mSent ;
-    private ProgressBar progressBar ;
-    private ForgotPasswordPresenter presenter ;
+public class ForgotPasswordActivity extends AppCompatActivity implements View.OnClickListener, ForgotPasswordView {
+    private EditText mEmailAddress;
+    private Button mSent;
+    private ProgressBar progressBar;
+    private ForgotPasswordPresenter presenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
         getSupportActionBar().setTitle("Forgot Password");
-         linkViews () ;
+        linkViews();
         mSent.setOnClickListener(this);
         presenter = new ForgotPasswordPersenterImpl(this);
     }
 
-    private void linkViews (){
+    private void linkViews() {
         TextView text = (TextView) findViewById(R.id.tv_forgotPasswordMsg);
         Typeface tf = Typeface.createFromAsset(getAssets(), "Fonts/Gabriola.ttf");
         text.setTypeface(tf);
@@ -50,7 +52,7 @@ public class ForgotPasswordActivity extends AppCompatActivity  implements View.O
     }
 
     @Override
-    public void setUsernameError(String message ) {
+    public void setUsernameError(String message) {
         mEmailAddress.setError(message);
     }
 

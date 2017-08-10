@@ -10,7 +10,7 @@ import android.mobilestudio.chatme.R;
 public class SignUpPresenterImpl implements SignUpPresenter, SignUpInteractor.OnSignUpFinishedListener {
     SignUpView mView;
     SignUpInteractor mInteractor;
-    Person person ;
+    Person person;
 
     public SignUpPresenterImpl(SignUpView view) {
         this.mView = view;
@@ -51,7 +51,7 @@ public class SignUpPresenterImpl implements SignUpPresenter, SignUpInteractor.On
     }
 
     @Override
-    public void SignUpUser(Person person , String confirmPassword ) {
+    public void SignUpUser(Person person, String confirmPassword) {
         if (mView == null)
             return;
 
@@ -63,31 +63,32 @@ public class SignUpPresenterImpl implements SignUpPresenter, SignUpInteractor.On
             mView.setFristNameError();
             return;
         }
-        if(person.getLastName().isEmpty()){
+        if (person.getLastName().isEmpty()) {
             mView.setLastNameError();
             return;
         }
-        this.person = person ;
+        this.person = person;
         mView.showProgress();
         mInteractor.SignUp(person.getEmail(), person.getPassword(), this);
     }
 
     @Override
     public void GenderClicked() {
-        if(mView !=null){
+        if (mView != null) {
             mView.changeGender();
         }
     }
+
     @Override
     public void BirthdateClickd() {
-        if(mView!=null){
+        if (mView != null) {
             mView.releaseDatePickerDialog();
         }
     }
 
     @Override
     public void onCreate() {
-        if(mView!=null){
+        if (mView != null) {
             mView.setTiltetoToolbar(R.string.signup);
             mView.setAnimToOrangeImage();
         }

@@ -6,14 +6,15 @@ import android.mobilestudio.chatme.R;
  * Created by pisoo on 7/30/2017.
  */
 
-public class ForgotPasswordPersenterImpl implements ForgotPasswordPresenter , ForgotPasswordInteractor.OnSentEmailFinishedListener{
+public class ForgotPasswordPersenterImpl implements ForgotPasswordPresenter, ForgotPasswordInteractor.OnSentEmailFinishedListener {
     private ForgotPasswordView forgotPasswordView;
     private ForgotPasswordInteractor forgotPasswordInteractor;
 
-     public ForgotPasswordPersenterImpl(ForgotPasswordView forgotPasswordView) {
-         this.forgotPasswordView = forgotPasswordView ;
-         this.forgotPasswordInteractor = new ForgotPasswordInteractorImpl() ;
-     }
+    public ForgotPasswordPersenterImpl(ForgotPasswordView forgotPasswordView) {
+        this.forgotPasswordView = forgotPasswordView;
+        this.forgotPasswordInteractor = new ForgotPasswordInteractorImpl();
+    }
+
     @Override
     public void onUsernameError() {
         forgotPasswordView.hideProgress();
@@ -28,7 +29,7 @@ public class ForgotPasswordPersenterImpl implements ForgotPasswordPresenter , Fo
 
     @Override
     public void onSuccess() {
-        if(forgotPasswordInteractor !=null){
+        if (forgotPasswordInteractor != null) {
             forgotPasswordView.displayToast(R.string.forgot_password_msg);
             forgotPasswordView.hideProgress();
             forgotPasswordView.returnToSignInScreen();
@@ -37,15 +38,15 @@ public class ForgotPasswordPersenterImpl implements ForgotPasswordPresenter , Fo
 
     @Override
     public void onDestroy() {
-        forgotPasswordView = null ;
+        forgotPasswordView = null;
     }
 
     @Override
-    public void validateCredentials(String  email) {
-        if(forgotPasswordInteractor !=null){
+    public void validateCredentials(String email) {
+        if (forgotPasswordInteractor != null) {
             forgotPasswordView.showProgress();
         }
 
-        forgotPasswordInteractor.sentEmailToRegisteredAccount(email ,this);
+        forgotPasswordInteractor.sentEmailToRegisteredAccount(email, this);
     }
 }

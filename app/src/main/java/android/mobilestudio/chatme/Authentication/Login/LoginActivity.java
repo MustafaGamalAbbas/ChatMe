@@ -29,7 +29,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView, View.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-//       getSupportActionBar().setTitle("Login");
         linkViews();
         presenter = new LoginPresenterImpl(this);
         mLogin.setOnClickListener(this);
@@ -41,7 +40,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView, View.
     @Override
     protected void onStart() {
         super.onStart();
-       // presenter.onStart();
+        // presenter.onStart();
     }
 
     @Override
@@ -96,17 +95,17 @@ public class LoginActivity extends AppCompatActivity implements LoginView, View.
 
     @Override
     public void setEmailError() {
-        mEmailAddress.setError("Email Address is invalid .");
+        mEmailAddress.setError(getResources().getString(R.string.invalid_email));
     }
 
     @Override
-    public void diplayToast(int message) {
+    public void displayToast(int message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void setPasswordError() {
-        mPassword.setError("Password too short, enter minimum 6 characters!");
+        mPassword.setError(getResources().getString(R.string.invalid_password));
     }
 
     @Override

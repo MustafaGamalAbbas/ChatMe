@@ -11,8 +11,12 @@ import java.util.List;
 public interface ChatView {
 
     void setAdapter(List<Message> list);
-    void notifyAdapter ();
+
+    void notifyAdapter();
+
     void hideKeyboard();
-    void  erase_EditTexy_Message ();
-     void setTitleOfToolbar (String name);
+
+    void erase_EditTexy_Message();
+
+    void setTitleOfToolbar(String name);
 }

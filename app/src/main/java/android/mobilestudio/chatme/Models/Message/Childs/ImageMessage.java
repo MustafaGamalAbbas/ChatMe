@@ -8,7 +8,7 @@ import android.mobilestudio.chatme.models.message.parent.Message;
 
 public class ImageMessage extends Message {
 
-    private String ImageId  ;
+    private String ImageId;
 
     public String getImageId() {
         return ImageId;
@@ -18,11 +18,13 @@ public class ImageMessage extends Message {
         ImageId = imageId;
     }
 
-    public void sentMessage(){
+    public void sentMessage() {
 
     }
-    public void editMessage(){
+
+    public void editMessage() {
     }
-    public void deleteMessage(){
+
+    public void deleteMessage() {
     }
 }

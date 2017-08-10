@@ -4,15 +4,17 @@ package android.mobilestudio.chatme.models.message.parent;
  * Created by pisoo on 7/31/2017.
  */
 
-public class Message  {
-    private Boolean it_is_myMessage ;
-    private String content ;
+public class Message {
+    private Boolean it_is_myMessage;
+    private String content;
 
-    public void sentMessage(){
+    public void sentMessage() {
     }
-    public void editMessage(){
+
+    public void editMessage() {
     }
-    public void deleteMessage(){
+
+    public void deleteMessage() {
     }
 
     public Boolean getIt_is_myMessage() {

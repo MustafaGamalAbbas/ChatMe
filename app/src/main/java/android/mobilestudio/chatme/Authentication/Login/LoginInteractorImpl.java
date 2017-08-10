@@ -20,9 +20,10 @@ public class LoginInteractorImpl implements LoginInteractor {
     private static final String EMAIL_PATTERN = "^[a-zA-Z0-9#_~!$&'()*+,;=:.\"(),:;<>@\\[\\]\\\\]+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*$";
     private Pattern pattern = Pattern.compile(EMAIL_PATTERN);
 
-    public LoginInteractorImpl (){
+    public LoginInteractorImpl() {
         mAuth = FirebaseAuth.getInstance();
     }
+
     @Override
     public void login(String email, String password, OnLoginFinishedListener listener) {
         if (!validateEmail(email)) {
@@ -74,7 +75,7 @@ public class LoginInteractorImpl implements LoginInteractor {
                         // signed in user can be handled in the listener.
                         if (!task.isSuccessful()) {
                             // there was an error
-                             listener.failedToLogin();
+                            listener.failedToLogin();
 
                         } else {
                             listener.onSuccess();

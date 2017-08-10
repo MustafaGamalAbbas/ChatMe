@@ -35,6 +35,7 @@
                     android:src="@drawable/edit"
                     android:layout_gravity="end"
                     android:clickable="true"
+                    android:contentDescription="@string/edit_content_description"
                     />
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/profile_img"

@@ -20,16 +20,17 @@ import java.util.regex.Pattern;
 
 public class SignUpInteractorImpl implements SignUpInteractor {
     private FirebaseAuth mAuth;
-    private FirebaseDatabase firebaseDatabase  ;
+    private FirebaseDatabase firebaseDatabase;
     private static final String EMAIL_PATTERN = "^[a-zA-Z0-9#_~!$&'()*+,;=:.\"(),:;<>@\\[\\]\\\\]+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*$";
     private Pattern pattern = Pattern.compile(EMAIL_PATTERN);
 
-    public SignUpInteractorImpl (){
+    public SignUpInteractorImpl() {
 
         mAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
 
     }
+
     @Override
     public void SignUp(String email, String password, OnSignUpFinishedListener listener) {
         if (!validateEmail(email)) {
@@ -55,7 +56,7 @@ public class SignUpInteractorImpl implements SignUpInteractor {
         }
     }
 
-    private void signUpToFireBase(String email , String password , final OnSignUpFinishedListener listener) {
+    private void signUpToFireBase(String email, String password, final OnSignUpFinishedListener listener) {
         Log.v("email ", email);
         Log.v("pa ", password);
         mAuth.createUserWithEmailAndPassword(email, password)
@@ -67,14 +68,13 @@ public class SignUpInteractorImpl implements SignUpInteractor {
                         // signed in user can be handled in the listener.
                         if (!task.isSuccessful()) {
                             Log.v("message", task.getException().getMessage());
-                           listener.failedToSignUp();
+                            listener.failedToSignUp();
                         } else {
                             listener.onSuccess();
                         }
                     }
                 });
     }
-
 
 
     private boolean validateEmail(String email) {

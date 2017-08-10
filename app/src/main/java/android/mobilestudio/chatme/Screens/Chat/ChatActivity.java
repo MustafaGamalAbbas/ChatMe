@@ -17,20 +17,21 @@ import android.widget.LinearLayout;
 
 import java.util.List;
 
-public class ChatActivity extends AppCompatActivity implements ChatView , View.OnClickListener {
-    RecyclerView Messages_recyclerView ;
-    ImageView sentButton ;
-    EditText  mContentMessage ;
-    MessageListAdapter adapter ;
-    ChatPresenter presenter ;
-     @Override
+public class ChatActivity extends AppCompatActivity implements ChatView, View.OnClickListener {
+    RecyclerView Messages_recyclerView;
+    ImageView sentButton;
+    EditText mContentMessage;
+    MessageListAdapter adapter;
+    ChatPresenter presenter;
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
         Messages_recyclerView = (RecyclerView) findViewById(R.id.rv_MessagesOfChat);
         sentButton = (ImageView) findViewById(R.id.iv_sentButton);
         sentButton.setOnClickListener(this);
-        mContentMessage = (EditText)findViewById(R.id.ed_Message) ;
+        mContentMessage = (EditText) findViewById(R.id.ed_Message);
         Messages_recyclerView.setLayoutManager(new StaggeredGridLayoutManager(1, LinearLayout.VERTICAL));
         presenter = new ChatPresenterImpl(this);
         presenter.onCreate((Person) getIntent().getExtras().get("person"));
@@ -38,7 +39,7 @@ public class ChatActivity extends AppCompatActivity implements ChatView , View.O
 
     @Override
     public void setAdapter(List<Message> list) {
-        adapter=new MessageListAdapter(this,list);
+        adapter = new MessageListAdapter(this, list);
         Messages_recyclerView.setAdapter(adapter);
     }
 
@@ -62,13 +63,13 @@ public class ChatActivity extends AppCompatActivity implements ChatView , View.O
     }
 
     @Override
-    public void setTitleOfToolbar(String name ) {
+    public void setTitleOfToolbar(String name) {
         getSupportActionBar().setTitle(name);
     }
 
     @Override
     public void onClick(View v) {
-        if(v.getId()==sentButton.getId()){
+        if (v.getId() == sentButton.getId()) {
             presenter.addTextMessage(mContentMessage.getText().toString());
         }
     }

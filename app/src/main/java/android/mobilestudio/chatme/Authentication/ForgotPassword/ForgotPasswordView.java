@@ -9,7 +9,9 @@ public interface ForgotPasswordView {
 
     void hideProgress();
 
-    void setUsernameError( String message );
-    void displayToast (int message ) ;
-    void returnToSignInScreen ();
+    void setUsernameError(String message);
+
+    void displayToast(int message);
+
+    void returnToSignInScreen();
 }

@@ -5,6 +5,7 @@ package android.mobilestudio.chatme.authentication.forgotPassword;
  */
 
 public interface ForgotPasswordPresenter {
-    void onDestroy () ;
+    void onDestroy();
+
     void validateCredentials(String username);
 }

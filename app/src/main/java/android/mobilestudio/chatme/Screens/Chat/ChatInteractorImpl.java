@@ -18,26 +18,27 @@ import java.util.List;
  */
 
 public class ChatInteractorImpl implements ChatInteractor {
-    private FirebaseDatabase database ;
-    DatabaseReference databaseReference ;
+    private FirebaseDatabase database;
+    DatabaseReference databaseReference;
 
-    private static String Id  , MyID ;
+    private static String Id, MyID;
+
     public ChatInteractorImpl() {
-        database  = FirebaseDatabase.getInstance();
+        database = FirebaseDatabase.getInstance();
         MyID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
     }
 
     @Override
-    public List<Message> getPreviousMessages(final OnMessagesListener listener, String id ) {
-        Id = id ;
+    public List<Message> getPreviousMessages(final OnMessagesListener listener, String id) {
+        Id = id;
         final List<Message> list = new ArrayList<>();
-        databaseReference = database.getReference("/NanoChats/"+MyID+"/"+id);
+        databaseReference = database.getReference("/NanoChats/" + MyID + "/" + id);
 
         ChildEventListener childEventListener = new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                list.add(dataSnapshot.getValue(Message.class) ) ;
+                list.add(dataSnapshot.getValue(Message.class));
                 listener.OnItemAdded();
             }
 
@@ -58,23 +59,24 @@ public class ChatInteractorImpl implements ChatInteractor {
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
-        } ;
+        };
         databaseReference.addChildEventListener(childEventListener);
-        return list ;    }
+        return list;
+    }
 
     @Override
     public void addMessage(Message message) {
-        String Time = Calendar.getInstance().getTime().getYear() +""+
-                Calendar.getInstance().getTime().getMonth()  +""+
-                Calendar.getInstance().getTime().getDay() +""+
-                Calendar.getInstance().getTime().getHours() +""+
-                Calendar.getInstance().getTime().getMinutes() +""+
+        String Time = Calendar.getInstance().getTime().getYear() + "" +
+                Calendar.getInstance().getTime().getMonth() + "" +
+                Calendar.getInstance().getTime().getDay() + "" +
+                Calendar.getInstance().getTime().getHours() + "" +
+                Calendar.getInstance().getTime().getMinutes() + "" +
                 Calendar.getInstance().getTime().getSeconds();
 
-        databaseReference =  database.getReference("/NanoChats/"+MyID+"/"+Id+ "/"+Time);
+        databaseReference = database.getReference("/NanoChats/" + MyID + "/" + Id + "/" + Time);
         message.setIt_is_myMessage(true);
         databaseReference.setValue(message);
-        databaseReference =  database.getReference("/NanoChats/"+Id+"/"+MyID+ "/"+Time);
+        databaseReference = database.getReference("/NanoChats/" + Id + "/" + MyID + "/" + Time);
         message.setIt_is_myMessage(false);
         databaseReference.setValue(message);
 

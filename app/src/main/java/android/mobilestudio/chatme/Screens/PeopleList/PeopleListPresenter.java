@@ -5,8 +5,11 @@ package android.mobilestudio.chatme.screens.peopleList;
  */
 
 public interface PeopleListPresenter {
-     void onDestroy();
-     void onCreate() ;
-     void logoutCurrentUser () ;
-     void moveToProfile ();
+    void onDestroy();
+
+    void onCreate();
+
+    void logoutCurrentUser();
+
+    void moveToProfile();
 }

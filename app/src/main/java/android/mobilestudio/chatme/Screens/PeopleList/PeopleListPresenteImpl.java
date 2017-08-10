@@ -6,21 +6,23 @@ import android.mobilestudio.chatme.models.Person;
  * Created by pisoo on 7/30/2017.
  */
 
-public class PeopleListPresenteImpl implements PeopleListPresenter , PeopleListInteractor.OnGetFinishedListener{
-    PeopleListView mView ;
-    PeopleListInteractor interactor ;
-     public  PeopleListPresenteImpl (PeopleListView view ){
-         mView = view ;
-         interactor  = new PeopleListInteractorImpl() ;
-     }
+public class PeopleListPresenteImpl implements PeopleListPresenter, PeopleListInteractor.OnGetFinishedListener {
+    PeopleListView mView;
+    PeopleListInteractor interactor;
+
+    public PeopleListPresenteImpl(PeopleListView view) {
+        mView = view;
+        interactor = new PeopleListInteractorImpl();
+    }
+
     @Override
     public void onDestroy() {
-        mView = null ;
+        mView = null;
     }
 
     @Override
     public void onCreate() {
-       // interactor.getListOfPerson();
+        // interactor.getListOfPerson();
         mView.setAdapter(interactor.getListOfPerson(this));
     }
 
@@ -32,12 +34,12 @@ public class PeopleListPresenteImpl implements PeopleListPresenter , PeopleListI
 
     @Override
     public void moveToProfile() {
-        interactor.getPerson(this) ;
+        interactor.getPerson(this);
     }
 
     @Override
     public void OnItemAdded() {
-            mView.notifyAdapter();
+        mView.notifyAdapter();
     }
 
     @Override
@@ -49,6 +51,7 @@ public class PeopleListPresenteImpl implements PeopleListPresenter , PeopleListI
     public void onItemEdited() {
         mView.notifyAdapter();
     }
+
     @Override
     public void onGetPerson(Person person) {
         mView.toProfile(person);

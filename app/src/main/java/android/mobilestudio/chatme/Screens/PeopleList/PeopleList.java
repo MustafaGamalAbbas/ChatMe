@@ -35,6 +35,7 @@ public class PeopleList extends AppCompatActivity implements PeopleListView, Mem
     List<Person> AllUser, OnlineUser, list;
     private InterstitialAd mInterstitialAd;
     private AdView mBannerAd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,17 +46,16 @@ public class PeopleList extends AppCompatActivity implements PeopleListView, Mem
         presenter.onCreate();
         AllUser = new ArrayList<>();
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText("All Users"));
-        tabLayout.addTab(tabLayout.newTab().setText("Online Users"));
+        tabLayout.addTab(tabLayout.newTab().setText(getResources().getString(R.string.all_users)));
+        tabLayout.addTab(tabLayout.newTab().setText(getResources().getString(R.string.online_users)));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                if(tab.getPosition() == 0){
-                        list.addAll(AllUser);
-                       AllUser.clear();
-                }
-               else if (tab.getPosition() == 1) {
+                if (tab.getPosition() == 0) {
+                    list.addAll(AllUser);
+                    AllUser.clear();
+                } else if (tab.getPosition() == 1) {
                     list = filterAlluser(list);
                 }
                 adapter.notifyDataSetChanged();
@@ -71,11 +71,11 @@ public class PeopleList extends AppCompatActivity implements PeopleListView, Mem
 
             }
         });
-        MobileAds.initialize(this, "ca-app-pub-3940256099942544/6300978111");
+        MobileAds.initialize(this, getResources().getString(R.string.ad_id_bannar));
         mBannerAd = (AdView) findViewById(R.id.banner_AdView);
-         showBannerAd();
+        showBannerAd();
         mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
+        mInterstitialAd.setAdUnitId(getResources().getString(R.string.ad_id_bannar));
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
         mInterstitialAd.setAdListener(new AdListener() {
             @Override
@@ -86,6 +86,7 @@ public class PeopleList extends AppCompatActivity implements PeopleListView, Mem
         });
 
     }
+
     private void showBannerAd() {
 
         AdRequest adRequest = new AdRequest.Builder()
@@ -93,6 +94,7 @@ public class PeopleList extends AppCompatActivity implements PeopleListView, Mem
         mBannerAd.loadAd(adRequest);
 
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_peoplelist, menu);
@@ -121,7 +123,7 @@ public class PeopleList extends AppCompatActivity implements PeopleListView, Mem
     private List<Person> filterAlluser(List<Person> list) {
 
         for (int i = 0; i < list.size(); i++) {
-            Log.v("iiii",String.valueOf( list.get(i).getActive()));
+            Log.v("iiii", String.valueOf(list.get(i).getActive()));
             if (!list.get(i).getActive()) {
                 AllUser.add(list.get(i));
                 list.remove(i);
@@ -148,12 +150,11 @@ public class PeopleList extends AppCompatActivity implements PeopleListView, Mem
 
     @Override
     public void recyclerViewListClicked(View v, int position) {
-        if(position >-1 && position < list.size()){
+        if (position > -1 && position < list.size()) {
             Intent intent = new Intent(PeopleList.this, ChatActivity.class);
             intent.putExtra("person", list.get(position));
             startActivity(intent);
-        }
-        else {
+        } else {
             Toast.makeText(this, R.string.ops, Toast.LENGTH_SHORT).show();
         }
 

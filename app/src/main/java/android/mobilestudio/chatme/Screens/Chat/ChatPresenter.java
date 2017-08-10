@@ -7,7 +7,9 @@ import android.mobilestudio.chatme.models.Person;
  */
 
 public interface ChatPresenter {
-    void addTextMessage(String message );
+    void addTextMessage(String message);
+
     void onDestroy();
-    void onCreate(Person person) ;
+
+    void onCreate(Person person);
 }

@@ -23,13 +23,13 @@ public class ForgotPasswordInteractorImpl implements ForgotPasswordInteractor {
     public void sentEmailToRegisteredAccount(String email, OnSentEmailFinishedListener onsentListener) {
 
         if (validateEmail(email)) {
-            sentToEmail(email,onsentListener);
-        }
-        else{
+            sentToEmail(email, onsentListener);
+        } else {
             onsentListener.onUsernameError();
-          }
+        }
     }
-    private void sentToEmail (String email , final OnSentEmailFinishedListener onSentEmailFinishedListener ){
+
+    private void sentToEmail(String email, final OnSentEmailFinishedListener onSentEmailFinishedListener) {
         auth = FirebaseAuth.getInstance();
         auth.sendPasswordResetEmail(email)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -43,6 +43,7 @@ public class ForgotPasswordInteractorImpl implements ForgotPasswordInteractor {
                     }
                 });
     }
+
     private boolean validateEmail(String email) {
         Matcher matcher;
         matcher = pattern.matcher(email);

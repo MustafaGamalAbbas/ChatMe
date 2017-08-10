@@ -5,8 +5,8 @@ android {
         config {
             keyAlias 'MyKey'
             keyPassword 'MustafaPiso'
-            storeFile file('/app/android.jks')
-            storePassword 'MustafaPiso'
+            storeFile file('/android.jks')
+            storePassword 'piso2424'
         }
     }
     compileSdkVersion 25
