@@ -32,7 +32,5 @@
             android:src="@drawable/ic_menu_send"
             android:id="@+id/iv_sentButton"
             android:contentDescription="@string/sent_a_massage"/>
-
-
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

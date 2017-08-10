@@ -29,7 +29,7 @@ public class Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         if (getIntent() != null) {
-            currentProfile = (Person) getIntent().getExtras().get("CurrentUser");
+            currentProfile = (Person) getIntent().getExtras().get(getString(R.string.cur_user));
         }
         firebaseDatabase = FirebaseDatabase.getInstance();
 
@@ -37,7 +37,7 @@ public class Profile extends AppCompatActivity {
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Profile.this, EditProfile.class).putExtra("userToEdit", currentProfile));
+                startActivity(new Intent(Profile.this, EditProfile.class).putExtra(getString(R.string.edit_user), currentProfile));
             }
         });
         setViews();
@@ -46,8 +46,8 @@ public class Profile extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (FirebaseAuth.getInstance().getCurrentUser() != null) {
                     String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                    DatabaseReference databaseReference = firebaseDatabase.getReference("/people/" + id);
-                    databaseReference.child("active").setValue(isChecked);
+                    DatabaseReference databaseReference = firebaseDatabase.getReference(getString(R.string.people_pass) + id);
+                    databaseReference.child(getString(R.string.active_)).setValue(isChecked);
                 } else {
                     Log.e("Current User ", "is Null");
                 }

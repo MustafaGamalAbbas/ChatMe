@@ -52,8 +52,8 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
     }
 
     @Override
-    public void setUsernameError(String message) {
-        mEmailAddress.setError(message);
+    public void setUsernameError() {
+        mEmailAddress.setError(getString(R.string.invalid_email));
     }
 
     @Override

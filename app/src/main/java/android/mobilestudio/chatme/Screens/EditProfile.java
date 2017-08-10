@@ -37,7 +37,7 @@ public class EditProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
         if (getIntent() != null) {
-            userToEdit = (Person) getIntent().getExtras().get("userToEdit");
+            userToEdit = (Person) getIntent().getExtras().get(getString(R.string.edit_user));
             oldEmail = userToEdit.getEmail();
             oldPassword = userToEdit.getPassword();
         }
@@ -93,11 +93,11 @@ public class EditProfile extends AppCompatActivity {
 
     private void SaveClicked() {
         if (!validatePassword(mPassword.getText().toString())) {
-            mPassword.setError("Password too short, enter minimum 6 characters!");
+            mPassword.setError(getString(R.string.pass_and_short));
             return;
         }
         if (!validateEmail(mEmailAddress.getText().toString())) {
-            mEmailAddress.setError("Email Address is invalid .");
+            mEmailAddress.setError(getResources().getString(R.string.invalid_email));
             return;
         }
         if (!oldPassword.equals(mPassword.getText().toString())) {
@@ -159,7 +159,7 @@ public class EditProfile extends AppCompatActivity {
     public void uploadAccountData(Person person) {
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
             String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
-            DatabaseReference databaseReference = firebaseDatabase.getReference("/people/" + id);
+            DatabaseReference databaseReference = firebaseDatabase.getReference(getString(R.string.people_pass) + id);
             person.setId(id);
             databaseReference.setValue(person);
         } else {

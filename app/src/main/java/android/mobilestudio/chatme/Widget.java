@@ -19,7 +19,7 @@ public class Widget extends AppWidgetProvider implements GetStateOfPerson {
     RemoteViews views;
     Context context;
     int online = 0, offline = 0;
-    String OnlineStr = "", OfflineStr = "Offline ";
+    String OnlineStr = "", OfflineStr =  "";
 
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         this.context = context;
@@ -48,10 +48,11 @@ public class Widget extends AppWidgetProvider implements GetStateOfPerson {
     public void onGetState(Boolean b) {
         if (b) {
             online++;
-            OnlineStr = online + "  Users are  ";
+
+            OnlineStr = online + context.getString(R.string.user_are);
         } else {
             offline++;
-            OfflineStr = offline + "  Users are ";
+            OfflineStr = offline + context.getString(R.string.user_are);
         }
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.activity_widget);
         views.setTextViewText(R.id.tv_offline, OfflineStr);

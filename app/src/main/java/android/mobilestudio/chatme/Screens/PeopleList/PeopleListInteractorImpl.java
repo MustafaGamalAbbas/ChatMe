@@ -40,7 +40,7 @@ public class PeopleListInteractorImpl implements PeopleListInteractor {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 list.add(dataSnapshot.getValue(Person.class));
                 listener.OnItemAdded();
-                Log.v("dataSnapshot ", dataSnapshot.getValue(Person.class).getEmail());
+               // Log.v("dataSnapshot ", dataSnapshot.getValue(Person.class).getEmail());
             }
 
             @Override

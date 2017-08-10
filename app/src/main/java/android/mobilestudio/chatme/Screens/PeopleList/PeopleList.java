@@ -145,7 +145,7 @@ public class PeopleList extends AppCompatActivity implements PeopleListView, Mem
 
     @Override
     public void toProfile(Person user) {
-        startActivity(new Intent(this, Profile.class).putExtra("CurrentUser", user));
+        startActivity(new Intent(this, Profile.class).putExtra(getString(R.string.cur_user), user));
     }
 
     @Override

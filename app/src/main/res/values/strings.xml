@@ -39,6 +39,7 @@
     <string name="profile">PROFILE</string>
     <string name="nameofperson">Name</string>
     <string name="active">Active</string>
+    <string name="active_">Active</string>
     <string name="email">Email :- </string>
     <string name="phone">Phone :- </string>
     <string name="Age">Age :- </string>
@@ -67,5 +68,14 @@
     <string name="logo_des">Logo</string>
     <string name="signup_des">Sign up Please </string>
     <string name="years">  Years </string>
+    <string name="pass_and_short">Password too short, enter minimum 6 characters!</string>
+    <string name="cur_user">CurrentUser</string>
+    <string name="edit_user">userToEdit</string>
+    <string name="people_pass">/people/</string>
+    <string name="not_Entered">Not Entered</string>
+    <string name="sharedPre">SharedPre</string>
+    <string name="person">person</string>
+    <string name="nano_chat">/NanoChats/</string>
+    <string name="user_are">.  Users are  </string>
 
 </resources>

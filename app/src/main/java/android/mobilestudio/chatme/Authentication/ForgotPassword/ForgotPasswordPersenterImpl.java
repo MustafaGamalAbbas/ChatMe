@@ -18,7 +18,7 @@ public class ForgotPasswordPersenterImpl implements ForgotPasswordPresenter, For
     @Override
     public void onUsernameError() {
         forgotPasswordView.hideProgress();
-        forgotPasswordView.setUsernameError("Email Address is invalid .");
+        forgotPasswordView.setUsernameError();
     }
 
     @Override

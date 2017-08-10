@@ -34,7 +34,7 @@ public class ChatActivity extends AppCompatActivity implements ChatView, View.On
         mContentMessage = (EditText) findViewById(R.id.ed_Message);
         Messages_recyclerView.setLayoutManager(new StaggeredGridLayoutManager(1, LinearLayout.VERTICAL));
         presenter = new ChatPresenterImpl(this);
-        presenter.onCreate((Person) getIntent().getExtras().get("person"));
+        presenter.onCreate((Person) getIntent().getExtras().get(getString(R.string.person)));
     }
 
     @Override

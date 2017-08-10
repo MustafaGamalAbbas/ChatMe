@@ -99,15 +99,15 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView, Vie
         myOwnData.setPhone(mPhone.getText().toString().trim());
         myOwnData.setActive(true);
         if (mMale.isChecked()) {
-            myOwnData.setGender("Male");
+            myOwnData.setGender(getString(R.string.male_label));
         } else if (mFemale.isChecked()) {
-            myOwnData.setGender("Female");
+            myOwnData.setGender(getString(R.string.female_label));
         }
         if (!mBirthDate.getText().toString().equals("")) {
             myOwnData.setBirthDate(mBirthDate.getText().toString().trim());
             myOwnData.setAge(Calendar.getInstance().getTime().getYear() - myCalendar.getTime().getYear());
         } else {
-            myOwnData.setBirthDate("Not Entered ");
+            myOwnData.setBirthDate(getString(R.string.not_Entered));
         }
     }
 
@@ -219,11 +219,11 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView, Vie
 
     @Override
     public void saveUserDataInSharedPreference() {
-        SharedPreferences sharedpreferences = this.getSharedPreferences("SharedPre", Context.MODE_PRIVATE);
+        SharedPreferences sharedpreferences = this.getSharedPreferences(getString(R.string.sharedPre), Context.MODE_PRIVATE);
         SharedPreferences.Editor prefsEditor = sharedpreferences.edit();
         Gson gson = new Gson();
         String json = gson.toJson(myOwnData);
-        prefsEditor.putString("CurrentUser", json);
+        prefsEditor.putString(getString(R.string.cur_user), json);
         prefsEditor.apply();
     }
 
