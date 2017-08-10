@@ -6,7 +6,7 @@ import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.mobilestudio.chatme.Authentication.Splash.SplashScreen;
+import android.mobilestudio.chatme.authentication.splash.SplashScreen;
 
 import android.widget.RemoteViews;
 
@@ -19,7 +19,7 @@ public class Widget  extends AppWidgetProvider implements GetStateOfPerson {
     RemoteViews views ;
     Context context ;
     int online =0  , offline =0 ;
-    String OnlineStr= "NoOne Online  " , OfflineStr = "Offline " ;
+    String OnlineStr= "" , OfflineStr = "Offline " ;
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
           this.context = context ;
         for(int i=0; i<appWidgetIds.length; i++){
@@ -30,8 +30,6 @@ public class Widget  extends AppWidgetProvider implements GetStateOfPerson {
             PendingIntent pending = PendingIntent.getActivity(context, 0,intent, 0);
 
             views.setOnClickPendingIntent(R.id.activity_widget, pending);
-            views.setTextViewText(R.id.tv_online ,  OnlineStr);
-            views.setTextViewText(R.id.tv_offline  , OfflineStr);
             appWidgetManager.updateAppWidget(currentWidgetId,views);
 
             MyJobService.stateOfPerson = this ;
@@ -49,11 +47,11 @@ public class Widget  extends AppWidgetProvider implements GetStateOfPerson {
     public void onGetState(Boolean b) {
         if(b){
             online++;
-            OnlineStr = online +"  Persons is " ;
+            OnlineStr = online +"  Users are  " ;
         }
         else {
             offline++;
-            OfflineStr = offline +"  Persons is " ;
+            OfflineStr = offline +"  Users are " ;
         }
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.activity_widget);
         views.setTextViewText(R.id.tv_offline  , OfflineStr);

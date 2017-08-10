@@ -1,4 +1,4 @@
-package android.mobilestudio.chatme.Authentication.SignUp;
+package android.mobilestudio.chatme.authentication.signUp;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
@@ -6,11 +6,10 @@ import android.content.Intent;
 
 import android.content.SharedPreferences;
 import android.mobilestudio.chatme.R;
-import android.mobilestudio.chatme.Models.Person;
-import android.mobilestudio.chatme.Screens.PeopleList.PeopleList;
+import android.mobilestudio.chatme.models.Person;
+import android.mobilestudio.chatme.screens.peopleList.PeopleList;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,8 +24,6 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
 

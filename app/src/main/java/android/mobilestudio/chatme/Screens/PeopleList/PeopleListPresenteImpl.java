@@ -1,6 +1,6 @@
-package android.mobilestudio.chatme.Screens.PeopleList;
+package android.mobilestudio.chatme.screens.peopleList;
 
-import android.mobilestudio.chatme.Models.Person;
+import android.mobilestudio.chatme.models.Person;
 
 /**
  * Created by pisoo on 7/30/2017.

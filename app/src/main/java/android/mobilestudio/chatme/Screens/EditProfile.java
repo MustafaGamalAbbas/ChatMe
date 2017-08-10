@@ -1,6 +1,6 @@
-package android.mobilestudio.chatme.Screens;
+package android.mobilestudio.chatme.screens;
 
-import android.mobilestudio.chatme.Models.Person;
+import android.mobilestudio.chatme.models.Person;
 import android.mobilestudio.chatme.R;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -10,10 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -59,7 +56,7 @@ public class EditProfile extends AppCompatActivity {
         if(id==R.id.action_save)
         {
             SaveClicked ();
-            Toast.makeText(this, "saved", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.saved, Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -85,7 +82,7 @@ public class EditProfile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SaveClicked ();
-                Toast.makeText(EditProfile.this, "saved", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EditProfile.this, R.string.saved, Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -119,9 +116,9 @@ public class EditProfile extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(EditProfile.this, "Password is updated!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(EditProfile.this, R.string.password_updated, Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(EditProfile.this, "Failed to update password!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(EditProfile.this, R.string.failed_to_update_pass, Toast.LENGTH_SHORT).show();
                            // progressBar.setVisibility(View.GONE);
                         }
                     }
@@ -141,10 +138,10 @@ public class EditProfile extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(EditProfile.this, "Email address is updated.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(EditProfile.this, R.string.email_updated, Toast.LENGTH_LONG).show();
                         } else {
-                            Toast.makeText(EditProfile.this, "Failed to update email!", Toast.LENGTH_LONG).show();
-                            Log.v("Errrrror",task.getException().getMessage().toString());
+                            Toast.makeText(EditProfile.this,R.string.failed_to_update , Toast.LENGTH_LONG).show();
+                          //  Log.v("Errrrror",task.getException().getMessage().toString());
                         }
                     }
                 });

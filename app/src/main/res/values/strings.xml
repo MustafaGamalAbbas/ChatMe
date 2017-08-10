@@ -45,4 +45,17 @@
     <string name="birthdate">BirthDate :- </string>
     <string name="save">Save</string>
     <string name="ad_id_bannar">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="no_one_online">No one online  </string>
+    <string name="offline">Offline</string>
+    <string name="sent_a_massage">sent massage</string>
+    <string name="edit">Edit</string>
+    <string name="saved">Saved</string>
+    <string name="info">Info</string>
+    <string name="invalid_password">"Password too short, enter minimum 6 characters!"</string>
+    <string name="email_updated">Email address is updated.</string>
+    <string name="failed_to_update">"Failed to update email!"</string>
+    <string name="password_updated">Password is updated.</string>
+    <string name="type_a_massage">Type a message </string>
+    <string name="ops">ops! there is an problem please check your internet connecion </string>
+    <string name="failed_to_update_pass">"Failed to update password!"</string>
 </resources>

@@ -5,7 +5,7 @@
     android:id="@+id/activity_edit_profile"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="android.mobilestudio.chatme.Screens.EditProfile"
+    tools:context="android.mobilestudio.chatme.screens.EditProfile"
     android:background="@color/App_background"
     android:padding="5dp">
     <ScrollView
@@ -46,7 +46,7 @@
                     android:background="@color/colorPrimary"
                     android:gravity="center"
                     android:textSize="18sp"
-                    android:text="edit"
+                    android:text="@string/edit"
                     android:textColor="@android:color/black" />
             </RelativeLayout>
         </LinearLayout>

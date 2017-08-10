@@ -1,7 +1,7 @@
-package android.mobilestudio.chatme.Screens.Chat;
+package android.mobilestudio.chatme.screens.chat;
 
-import android.mobilestudio.chatme.Models.Person;
-import android.mobilestudio.chatme.Models.Message.Childs.TextMessage;
+import android.mobilestudio.chatme.models.Person;
+import android.mobilestudio.chatme.models.message.childs.TextMessage;
 
 /**
  * Created by pisoo on 7/31/2017.

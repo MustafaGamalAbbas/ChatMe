@@ -1,4 +1,4 @@
-package android.mobilestudio.chatme.Authentication.SignUp;
+package android.mobilestudio.chatme.authentication.signUp;
 
 /**
  * Created by pisoo on 7/30/2017.

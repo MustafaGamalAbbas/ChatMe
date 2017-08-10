@@ -1,7 +1,6 @@
-package android.mobilestudio.chatme.Authentication.SignUp;
+package android.mobilestudio.chatme.authentication.signUp;
 
-import android.content.SharedPreferences;
-import android.mobilestudio.chatme.Models.Person;
+import android.mobilestudio.chatme.models.Person;
 import android.support.annotation.NonNull;
 import android.util.Log;
 

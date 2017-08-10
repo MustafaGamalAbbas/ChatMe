@@ -1,4 +1,4 @@
-package android.mobilestudio.chatme.Screens.PeopleList;
+package android.mobilestudio.chatme.screens.peopleList;
 
 /**
  * Created by pisoo on 7/30/2017.

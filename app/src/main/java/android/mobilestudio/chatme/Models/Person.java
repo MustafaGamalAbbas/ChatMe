@@ -1,7 +1,4 @@
-package android.mobilestudio.chatme.Models;
-
-import android.os.Parcel;
-import android.os.Parcelable;
+package android.mobilestudio.chatme.models;
 
 import java.io.Serializable;
 

@@ -25,39 +25,39 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".Authentication.SignUp.SignUpActivity">
+        <activity android:name=".authentication.signUp.SignUpActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Authentication.Login.LoginActivity" />
+                android:value=".authentication.login.LoginActivity" />
         </activity>
-        <activity android:name=".Authentication.Login.LoginActivity" />
-        <activity android:name=".Authentication.ForgotPassword.ForgotPasswordActivity">
+        <activity android:name=".authentication.login.LoginActivity" />
+        <activity android:name=".authentication.forgotPassword.ForgotPasswordActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Authentication.Login.LoginActivity" />
+                android:value=".authentication.login.LoginActivity" />
         </activity>
-        <activity android:name=".Screens.PeopleList.PeopleList" />
-        <activity android:name=".Screens.Chat.ChatActivity">
+        <activity android:name=".screens.peopleList.PeopleList" />
+        <activity android:name=".screens.chat.ChatActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Screens.PeopleList.PeopleList" />
+                android:value=".screens.peopleList.PeopleList" />
         </activity>
-        <activity android:name=".Authentication.Splash.SplashScreen">
+        <activity android:name=".authentication.splash.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Screens.Profile">
+        <activity android:name=".screens.Profile">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Screens.PeopleList.PeopleList" />
+                android:value=".screens.peopleList.PeopleList" />
         </activity>
-        <activity android:name=".Screens.EditProfile">
+        <activity android:name=".screens.EditProfile">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Screens.Profile" />
+                android:value=".screens.Profile" />
         </activity>
         <receiver android:name=".Widget">
             <intent-filter>

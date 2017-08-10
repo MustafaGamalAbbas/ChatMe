@@ -1,4 +1,4 @@
-package android.mobilestudio.chatme.Models.Message.Parent;
+package android.mobilestudio.chatme.models.message.parent;
 
 /**
  * Created by pisoo on 7/31/2017.

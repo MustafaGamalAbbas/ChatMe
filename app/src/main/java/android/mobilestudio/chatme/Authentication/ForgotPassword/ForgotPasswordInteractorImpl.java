@@ -1,9 +1,6 @@
-package android.mobilestudio.chatme.Authentication.ForgotPassword;
+package android.mobilestudio.chatme.authentication.forgotPassword;
 
-import android.mobilestudio.chatme.R;
 import android.support.annotation.NonNull;
-import android.view.View;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;

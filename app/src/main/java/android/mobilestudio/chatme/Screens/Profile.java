@@ -1,7 +1,7 @@
-package android.mobilestudio.chatme.Screens;
+package android.mobilestudio.chatme.screens;
 
 import android.content.Intent;
-import android.mobilestudio.chatme.Models.Person;
+import android.mobilestudio.chatme.models.Person;
 import android.mobilestudio.chatme.R;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,8 +12,6 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;

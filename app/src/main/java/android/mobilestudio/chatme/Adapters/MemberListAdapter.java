@@ -1,6 +1,6 @@
-package android.mobilestudio.chatme.Adapters;
+package android.mobilestudio.chatme.adapters;
 
-import android.mobilestudio.chatme.Models.Person;
+import android.mobilestudio.chatme.models.Person;
 import android.mobilestudio.chatme.R;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

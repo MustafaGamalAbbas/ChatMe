@@ -1,10 +1,7 @@
-package android.mobilestudio.chatme.Authentication.SignUp;
+package android.mobilestudio.chatme.authentication.signUp;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.mobilestudio.chatme.Models.Person;
+import android.mobilestudio.chatme.models.Person;
 import android.mobilestudio.chatme.R;
-import android.support.v7.view.menu.MenuView;
 
 /**
  * Created by pisoo on 7/30/2017.

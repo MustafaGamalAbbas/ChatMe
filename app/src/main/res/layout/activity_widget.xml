@@ -23,11 +23,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3 People "
+                android:text="@string/no_one_online"
                 android:id="@+id/tv_online"
                 android:layout_gravity="center_horizontal"
                 android:textSize="22sp"
-                android:paddingEnd="20dp"/>
+                 />
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -44,11 +44,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2 People "
+                android:text="@string/offline"
                 android:id="@+id/tv_offline"
                 android:layout_gravity="center_horizontal"
                 android:textSize="22sp"
-                android:paddingEnd="20dp"/>
+                 />
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

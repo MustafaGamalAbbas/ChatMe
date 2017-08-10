@@ -1,4 +1,4 @@
-package android.mobilestudio.chatme.Authentication.ForgotPassword;
+package android.mobilestudio.chatme.authentication.forgotPassword;
 import android.graphics.Typeface;
 import android.mobilestudio.chatme.R;
 import android.support.v7.app.AppCompatActivity;

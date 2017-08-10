@@ -1,8 +1,6 @@
 package android.mobilestudio.chatme;
 
-import android.mobilestudio.chatme.Models.Person;
-import android.mobilestudio.chatme.Screens.PeopleList.PeopleListInteractor;
-import android.util.Log;
+import android.mobilestudio.chatme.models.Person;
 
 import com.firebase.jobdispatcher.JobParameters;
 import com.firebase.jobdispatcher.JobService;

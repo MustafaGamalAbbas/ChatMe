@@ -1,6 +1,6 @@
-package android.mobilestudio.chatme.Authentication.SignUp;
+package android.mobilestudio.chatme.authentication.signUp;
 
-import android.mobilestudio.chatme.Models.Person;
+import android.mobilestudio.chatme.models.Person;
 
 /**
  * Created by pisoo on 7/30/2017.

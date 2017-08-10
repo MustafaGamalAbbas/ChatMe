@@ -1,9 +1,9 @@
-package android.mobilestudio.chatme.Screens.Chat;
+package android.mobilestudio.chatme.screens.chat;
 
 import android.content.Context;
-import android.mobilestudio.chatme.Adapters.MessageListAdapter;
-import android.mobilestudio.chatme.Models.Message.Parent.Message;
-import android.mobilestudio.chatme.Models.Person;
+import android.mobilestudio.chatme.adapters.MessageListAdapter;
+import android.mobilestudio.chatme.models.message.parent.Message;
+import android.mobilestudio.chatme.models.Person;
 import android.mobilestudio.chatme.R;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

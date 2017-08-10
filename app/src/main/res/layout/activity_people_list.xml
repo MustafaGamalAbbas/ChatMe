@@ -6,7 +6,7 @@
     android:id="@+id/activity_people_list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="android.mobilestudio.chatme.Screens.PeopleList.PeopleList"
+    tools:context="android.mobilestudio.chatme.screens.peopleList.PeopleList"
     android:background="@color/App_background">
     <LinearLayout
         android:layout_width="match_parent"

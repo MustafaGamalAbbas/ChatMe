@@ -1,8 +1,8 @@
-package android.mobilestudio.chatme.Adapters;
+package android.mobilestudio.chatme.adapters;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.mobilestudio.chatme.Models.Message.Parent.Message;
+import android.mobilestudio.chatme.models.message.parent.Message;
 import android.mobilestudio.chatme.R;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

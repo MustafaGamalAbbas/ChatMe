@@ -1,12 +1,12 @@
-package android.mobilestudio.chatme.Authentication.Login;
+package android.mobilestudio.chatme.authentication.login;
 
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.mobilestudio.chatme.Authentication.ForgotPassword.ForgotPasswordActivity;
-import android.mobilestudio.chatme.Authentication.SignUp.SignUpActivity;
+import android.mobilestudio.chatme.authentication.forgotPassword.ForgotPasswordActivity;
+import android.mobilestudio.chatme.authentication.signUp.SignUpActivity;
 import android.mobilestudio.chatme.R;
-import android.mobilestudio.chatme.Screens.PeopleList.PeopleList;
+import android.mobilestudio.chatme.screens.peopleList.PeopleList;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;

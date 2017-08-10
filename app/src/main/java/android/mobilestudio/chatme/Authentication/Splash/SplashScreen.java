@@ -1,8 +1,8 @@
-package android.mobilestudio.chatme.Authentication.Splash;
+package android.mobilestudio.chatme.authentication.splash;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.mobilestudio.chatme.Authentication.Login.LoginActivity;
+import android.mobilestudio.chatme.authentication.login.LoginActivity;
 import android.mobilestudio.chatme.R;
 import android.os.Bundle;
 import android.os.Handler;

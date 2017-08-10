@@ -1,6 +1,6 @@
-package android.mobilestudio.chatme.Models.Message.Childs;
+package android.mobilestudio.chatme.models.message.childs;
 
-import android.mobilestudio.chatme.Models.Message.Parent.Message;
+import android.mobilestudio.chatme.models.message.parent.Message;
 
 /**
  * Created by pisoo on 7/31/2017.

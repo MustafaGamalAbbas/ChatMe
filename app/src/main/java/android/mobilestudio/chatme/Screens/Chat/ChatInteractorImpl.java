@@ -1,6 +1,6 @@
-package android.mobilestudio.chatme.Screens.Chat;
+package android.mobilestudio.chatme.screens.chat;
 
-import android.mobilestudio.chatme.Models.Message.Parent.Message;
+import android.mobilestudio.chatme.models.message.parent.Message;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;

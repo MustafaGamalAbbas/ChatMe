@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="android.mobilestudio.chatme.Screens.Chat.ChatActivity"
+    tools:context="android.mobilestudio.chatme.screens.chat.ChatActivity"
     >
 
     <android.support.v7.widget.RecyclerView
@@ -24,13 +24,16 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:id="@+id/ed_Message"
+            android:hint="@string/type_a_massage"
             />
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="5"
             android:src="@drawable/ic_menu_send"
-            android:id="@+id/iv_sentButton"/>
+            android:id="@+id/iv_sentButton"
+            android:contentDescription="@string/sent_a_massage"/>
+
 
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

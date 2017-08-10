@@ -1,12 +1,12 @@
-package android.mobilestudio.chatme.Screens.PeopleList;
+package android.mobilestudio.chatme.screens.peopleList;
 
 import android.content.Intent;
-import android.mobilestudio.chatme.Adapters.MemberListAdapter;
-import android.mobilestudio.chatme.Authentication.Login.LoginActivity;
-import android.mobilestudio.chatme.Models.Person;
+import android.mobilestudio.chatme.adapters.MemberListAdapter;
+import android.mobilestudio.chatme.authentication.login.LoginActivity;
+import android.mobilestudio.chatme.models.Person;
 import android.mobilestudio.chatme.R;
-import android.mobilestudio.chatme.Screens.Chat.ChatActivity;
-import android.mobilestudio.chatme.Screens.Profile;
+import android.mobilestudio.chatme.screens.chat.ChatActivity;
+import android.mobilestudio.chatme.screens.Profile;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,7 +21,6 @@ import android.widget.Toast;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
@@ -149,8 +148,14 @@ public class PeopleList extends AppCompatActivity implements PeopleListView, Mem
 
     @Override
     public void recyclerViewListClicked(View v, int position) {
-        Intent intent = new Intent(PeopleList.this, ChatActivity.class);
-        intent.putExtra("person", list.get(position));
-        startActivity(intent);
+        if(position >-1 && position < list.size()){
+            Intent intent = new Intent(PeopleList.this, ChatActivity.class);
+            intent.putExtra("person", list.get(position));
+            startActivity(intent);
+        }
+        else {
+            Toast.makeText(this, R.string.ops, Toast.LENGTH_SHORT).show();
+        }
+
     }
 }
