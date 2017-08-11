@@ -55,9 +55,6 @@
                 android:value=".screens.peopleList.PeopleList" />
         </activity>
         <activity android:name=".screens.EditProfile">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".screens.Profile" />
         </activity>
         <receiver android:name=".Widget">
             <intent-filter>

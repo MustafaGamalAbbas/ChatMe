@@ -29,7 +29,7 @@ public class Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         if (getIntent() != null) {
-            currentProfile = (Person) getIntent().getExtras().get(getString(R.string.cur_user));
+                 currentProfile = (Person) getIntent().getExtras().get(getString(R.string.cur_user));
         }
         firebaseDatabase = FirebaseDatabase.getInstance();
 

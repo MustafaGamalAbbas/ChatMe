@@ -1,5 +1,6 @@
 package android.mobilestudio.chatme.screens;
 
+import android.content.Context;
 import android.mobilestudio.chatme.models.Person;
 import android.mobilestudio.chatme.R;
 import android.support.annotation.NonNull;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -71,6 +73,16 @@ public class EditProfile extends AppCompatActivity {
         mPosition = (EditText) findViewById(R.id.ed_position);
         mPhone = (EditText) findViewById(R.id.ed_phone);
         mSave = (Button) findViewById(R.id.bt_save);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 
     private void setView() {
